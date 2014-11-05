@@ -16,8 +16,8 @@
 
 - name: Copy keys to the ansible server
   fetch: >
-    src={{ item }} 
-    dest=fetch/{{ fsid }}/{{ item }} 
+    src={{ item }}
+    dest=fetch/{{ fsid }}/{{ item }}
     flat=yes
   when: cephx
   with_items:
@@ -28,9 +28,9 @@
 
 - name: Drop in a motd script to report status when logging in
   copy: >
-    src=precise/92-ceph 
-    dest=/etc/update-motd.d/92-ceph 
-    owner=root 
-    group=root 
+    src=precise/92-ceph
+    dest=/etc/update-motd.d/92-ceph
+    owner=root
+    group=root
     mode=0755
   when: ansible_distribution_release == 'precise'
